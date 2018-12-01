@@ -1,0 +1,51 @@
+antigen use oh-my-zsh
+# Bundles from the default repo (robbyrussell's oh-my-zsh).
+# antigen bundle git
+# antigen bundle heroku
+# antigen bundle pip
+# antigen bundle lein
+# antigen bundle command-not-found
+
+# Syntax highlighting bundle.
+# antigen bundle zsh-users/zsh-syntax-highlighting
+
+# Load the theme.
+antigen bundles <<EOBUNDLES
+  rupa/z@master # jump around most used directories
+  desyncr/key-bindings # 
+  reem/watch@master #watch command : watch <CMD> <FILES>, executes CM on FILES changes
+  #zsh-users/zsh-syntax-highlighting@0.5.*
+  zdharma/fast-syntax-highlighting
+  zsh-users/zsh-autosuggestions@master # do not use develop
+  zsh-users/zsh-completions
+  psprint/zsh-navigation-tools #ctrl+r command n-history and n-panelize
+  desyncr/gitr@develop
+  psprint/zsh-select                   # required by zsh-ctrlp
+  garybernhardt/selecta@v0.0.*
+  desyncr/zsh-ctrlp@develop # show all files of tree ctrl+p
+  desyncr/zsh-icdiff
+  sevanteri/zsh-dir-scroller
+  #Vifon/deer deer
+  hlissner/zsh-autopair
+  supercrabtree/k@0.*
+  per-directory-history
+  #LuRsT/hr
+  ddollar/git-utils                    # various git utilities
+  git://repo.or.cz/safe-rm.git         # Just kill me
+  wd
+  docker
+  arzzen/calc.plugin.zsh
+  #dbkaplun/smart-cd
+  tarrasch/zsh-autoenv
+  #desyncr/zsh-autocompl
+  greymd/docker-zsh-completion
+EOBUNDLES
+
+# experimental antigen search command
+antigen bundle https://gist.github.com/desyncr/e19af22b00fb1498d9836094e13d6ddb
+
+# antigen theme https://github.com/denysdovhan/spaceship-prompt spaceship
+antigen theme bhilburn/powerlevel9k powerlevel9k
+# antigen theme tonyseek/oh-my-zsh-seeker-theme seeker
+
+antigen apply

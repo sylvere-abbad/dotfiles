@@ -1,0 +1,49 @@
+[diff]
+	tool = icdiff
+	external = icdiff-ext-tool
+[difftool "icdiff"]
+	cmd = icdiff --line-numbers $LOCAL $REMOTE
+[user]
+	email = s.abbad@wexity.fr
+	name = Sylvère Abbad
+[pull]
+	rebase = true
+[rebase]
+	autoStash = true
+[core]
+	excludesfile = /Users/chill/.gitignore_global
+	editor = atom-beta --wait
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[commit]
+	template = /Users/chill/.stCommitMsg
+[alias]
+	amend = commit --amend
+	st = status
+	who = shortlog -sne
+	oneline = log --pretty=oneline --abbrev-commit --graph
+	changes = diff --name-status
+	dic = diff --cached
+	diffstat = diff --stat
+	lc = !git oneline ORIG_HEAD.. --stat --no-merges
+	addm = !git-ls-files -m -z | xargs -0 git-add && git status
+	addu = !git-ls-files -o --exclude-standard -z | xargs -0 git-add && git status
+	rmm = !git ls-files -d -z | xargs -0 git-rm && git status
+	mate = !git-ls-files -m -z | xargs -0 mate
+	mateall = !git-ls-files -m -o --exclude-standard -z | xargs -0 mate
+	undo = git reset --soft HEAD^
+	ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
+	ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+	lds = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
+	ld = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=relative
+	lld = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=relative --numstat
+	llds = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short --numstat
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
